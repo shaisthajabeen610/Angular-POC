@@ -120,7 +120,7 @@ export class PricingComponent implements OnInit,Series {
   fillData(){
     this.reportDataService.getDecisionTreeData().
         subscribe((data: any) => {
-          this.titleEnvName  = data.systemInfo;
+          this.titleEnvName  = data.servername;
           this.logicalProcessor = data.logicalProcessor;
           this.pricingCalculation(this.logicalProcessor);
 
