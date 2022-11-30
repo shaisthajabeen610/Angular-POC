@@ -1,3 +1,10 @@
+*{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+
+}
+
+
 .title-block{
     display:flex;
     align-items: center;
@@ -92,7 +99,7 @@
     
     /* Table Two */ 
     
-    .section-two {
+    .section-two , .section-three{
       margin: 50px 0;
     }
     
@@ -174,7 +181,7 @@
     }
     
     .pricing, .heading {
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 600;
     }
     
@@ -228,15 +235,8 @@
     }
     
     .description {
-      background-color: orange;
-      color: #fff;
-      border: 1px solid ;
-      border-radius: 50px;
-      margin: 40px auto;
-      padding: 10px 15px;
-      margin-left: auto;
-      text-align: center;
-      width: 50%;
+      
+      display: flex;
       
     }
     
@@ -251,11 +251,35 @@
       object-fit: cover;
       width: auto;
     }
+    .short-text{
+      float:left;
+      background-color: orange;
+      color: #fff;
+      border: 1px solid ;
+      border-radius: 50px;
+      margin-top: 10px ;
+      padding: 18px 15px;
+      margin-left: auto;
+      text-align: center;
+      width: 50%;
+      
+    }
+    .small-btn{
+      background-color: black;
+      border:none;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .categories{
+      float:right;
+      margin-top: 10px;
+    }
     .footer{
       display:flex;
       justify-content: center;
-      
-      
+      float: left
+    
     }
     .pdf-content{
       width:fit-content;

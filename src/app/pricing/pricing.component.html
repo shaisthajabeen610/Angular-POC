@@ -38,23 +38,52 @@
           <tr>
             <th scope="col" class="type">Configuration </th>
             <th scope="col" class="type app-row">Application list</th>
-            <th scope="col" class="cloud azure-cloud azure-vm">Azure VM</th>
+            <th scope="col" class="cloud azure-cloud azure-vm">Azure Instance</th>
             <th scope="col" class="cloud ram">RAM</th>
             <th class="space"></th>
             <th scope="col" class="cloud aws-cloud aws">AWS Instance</th>
             <th scope="col" class="cloud ram">RAM</th>
             <th class="space"></th>
             <th scope="col" class="cloud google-cloud google-vm">
-              Google Cloud VM
+              GCP Instance
             </th>
             <th scope="col" class="cloud ram">RAM</th>
           </tr>
         </thead>
         <tbody>
-          <tr
-           *ngFor="let cloud of priceArray; let i = index" class="cloud-data">
+          <tr *ngFor="let cloud of priceArray; let i = index" class="cloud-data">
             <td scope="row" class="type border-rad-first">
-              Containerised
+              Containerization
+              <!-- Compute Optimized -->
+            </td>
+            <td class="type app-row">Application {{i+1}}</td>
+            <td class="data-row-one">{{ cloud.series1}}</td>
+            <td class="data-row-two border-rad-last">{{cloud.ram1}}</td>
+            <td class="space"></td>
+            <td class="data-row-one border-rad-first">{{ cloud.meterName2 }}</td>
+            <td class="data-row-two border-rad-last">{{ cloud.ram2 }}</td>
+            <td class="space"></td>
+            <td class="data-row-one border-rad-first">{{ cloud.meterName3}}</td>
+            <td class="data-row-two border-rad-last">{{ cloud.ram3 }}</td>
+          </tr>
+          <tr *ngFor="let cloud of priceArray; let i = index" class="cloud-data">
+            <td scope="row" class="type border-rad-first">
+              Virtual Machine
+              <!-- Compute Optimized -->
+            </td>
+            <td class="type app-row">Application {{i+1}}</td>
+            <td class="data-row-one">{{cloud.meterName1}}</td>
+            <td class="data-row-two border-rad-last">{{cloud.ram1}}</td>
+            <td class="space"></td>
+            <td class="data-row-one border-rad-first">{{ cloud.meterName2 }}</td>
+            <td class="data-row-two border-rad-last">{{ cloud.ram2 }}</td>
+            <td class="space"></td>
+            <td class="data-row-one border-rad-first">{{ cloud.meterName3}}</td>
+            <td class="data-row-two border-rad-last">{{ cloud.ram3 }}</td>
+          </tr>
+          <tr *ngFor="let cloud of priceArray; let i = index" class="cloud-data">
+            <td scope="row" class="type border-rad-first">
+              Web APP
               <!-- Compute Optimized -->
             </td>
             <td class="type app-row">Application {{i+1}}</td>
@@ -119,7 +148,7 @@
 
     <section class="section-three">
       <div class="pricing-container">
-        <div class="pricing">Pricing / Month</div>
+        <div class="pricing"> Pay as you go / Reserved Instance(for 1 year) </div>
       </div>
 
       <div class="cloud-container">
@@ -127,12 +156,12 @@
           <div class="header-container grid">
             <div class="heading grid-type">Instance type</div>
             <div class="heading app-row">Application list</div>
-            <div class="heading cloud black azure-only">Azure</div>
-            <div class="heading cloud black aws-only">AWS</div>
-            <div class="heading cloud black google">Google Cloud</div>
+            <div class="heading cloud black azure-only">Azure-AKS</div>
+            <div class="heading cloud black aws-only">AWS-EKS</div>
+            <div class="heading cloud black google">GCP-GKS</div>
           </div>
 
-          <div class="main-container grid cloud-data-of-second-third" *ngFor="let cloud of priceArray; let i = index">
+          <!-- <div class="main-container grid cloud-data-of-second-third" *ngFor="let cloud of priceArray; let i = index">
             <div class="pad  border-rad-first grid-type">
               Compute Optimized
             </div>
@@ -142,8 +171,24 @@
             <div class="pad  gcloud  border-rad-last">
               {{ cloud.armskuname3}}
             </div>
+          </div> -->
+          <div class="main-container grid cloud-data-of-second-third" *ngFor="let cloud of priceArray; let i = index">
+
+            <div class="pad  border-rad-first grid-type">
+              Containerization
+            </div>
+
+            <div class="pad first-row grid-type app-row">Application{{i+1}}</div>
+            <div class="pad first-row">{{ cloud.series1}}</div>
+            <div class="pad first-row">{{ cloud.series2}}</div>
+            <div class="pad  gcloud  border-rad-last">{{ cloud.series3}}</div>
+
           </div>
+
         </div>
+
+
+
 
         <div class="second-container">
           <div class="second-header-container grid">
@@ -151,19 +196,93 @@
             <div class="heading orange aws-only">AWS</div>
             <div class="heading orange google">Google Cloud</div>
           </div>
-
+          <!-- 
           <div class="second-main-container grid cloud-data-of-second-third"
             *ngFor="let cloud of priceArray ; let i = index">
             <div class="pad first-row">&dollar;{{ cloud.price1 * 730 |number }}</div>
             <div class="pad first-row">&dollar;{{ cloud.price2 * 730 |number }}</div>
             <div class="pad first-row">&dollar;{{ cloud.price3 * 730 |number}}</div>
+          </div> -->
+
+          <!-- <div class="second-main-container grid cloud-data-of-second-third"
+            >
+            <div class="pad first-row"> AKS   </div>
+            <div class="pad first-row"> EKS  </div>
+            <div class="pad first-row"> GKS  </div>
+          </div> -->
+
+          <div class="second-main-container grid cloud-data-of-second-third"
+            *ngFor="let cloud of priceArray ; let i = index">
+            <div class="pad first-row">&dollar;{{ cloud.clusterPrice1 |number }} / &dollar;{{ cloud.reservedAKS |number
+              }} </div>
+            <div class="pad first-row">&dollar;{{ cloud.clusterPrice2 |number }} / &dollar;{{ cloud.reservedEKS |number
+              }}</div>
+            <div class="pad first-row">&dollar;{{ cloud.clusterPrice3 |number}} / &dollar;{{ cloud.reservedGKS |number
+              }}</div>
           </div>
+
+
         </div>
+
+
       </div>
     </section>
+
+    <!-- here the code for webapp -->
+
+    <section class="section-three">
+      <div class="pricing-container">
+        <div class="pricing"> Web APP Pricing </div>
+      </div>
+
+      <div class="cloud-container">
+        <div class="container">
+          <div class="header-container grid">
+            <div class="heading grid-type">Instance type</div>
+            <div class="heading app-row">Application list</div>
+            <div class="heading cloud black azure-only">Azure-WebAPP</div>
+            <div class="heading cloud black aws-only">AWS-Elastic</div>
+            <div class="heading cloud black google">GCP-AppEngine</div>
+          </div>
+
+          <div class="main-container grid cloud-data-of-second-third" *ngFor="let cloud of priceArray; let i = index">
+
+            <div class="pad  border-rad-first grid-type">
+              Web APP
+            </div>
+
+            <div class="pad first-row grid-type app-row">Application{{i+1}}</div>
+            <div class="pad first-row">{{cloud.meterName1}}</div>
+            <div class="pad first-row">{{cloud.meterName2}}</div>
+            <div class="pad  gcloud  border-rad-last">{{cloud.meterName3}}</div>
+
+          </div>
+        </div>
+        <div class="second-container">
+          <div class="second-header-container grid">
+            <div class="heading orange azure-only">Azure</div>
+            <div class="heading orange aws-only">AWS</div>
+            <div class="heading orange google">GCP</div>
+          </div>
+
+
+          <div class="second-main-container grid cloud-data-of-second-third"
+            *ngFor="let cloud of priceArray ; let i = index">
+            <div class="pad first-row">&dollar;{{ cloud.clusterPrice1 |number }} </div>
+            <div class="pad first-row">&dollar;{{ cloud.clusterPrice2 |number }} </div>
+            <div class="pad first-row">&dollar;{{ cloud.clusterPrice3 |number}} </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- here the code for spot vm pricing -->
     <section class="section-two">
       <div class="pricing-container">
-        <div class="pricing">  Spot VM  Pricing / Month</div>
+        <div class="pricing"> Spot VM Pricing / Month</div>
       </div>
 
       <div class="cloud-container">
@@ -177,15 +296,17 @@
           </div>
 
           <div class="main-container grid cloud-data-of-second-third" *ngFor="let cloud of priceArray; let i = index">
+
+
             <div class="pad  border-rad-first grid-type">
-              Compute Optimized
+              Virtual Machine
             </div>
-            <div class="pad first-row grid-app-row">Application {{i+1}}</div>
-            <div class="pad first-row">{{ cloud.armskuname1 }}</div>
-            <div class="pad first-row">{{ cloud.armskuname2 }}</div>
-            <div class="pad gcloud border-rad-last">
-              {{ cloud.armskuname3 }}
-            </div>
+
+            <div class="pad first-row grid-type app-row">Application{{i+1}}</div>
+            <div class="pad first-row">{{ cloud.series1}}</div>
+            <div class="pad first-row">{{ cloud.series2}}</div>
+            <div class="pad  gcloud  border-rad-last">{{ cloud.series3}}</div>
+
           </div>
         </div>
 
@@ -205,7 +326,7 @@
         </div>
       </div>
     </section>
-    <section class="section-two">
+    <!-- <section class="section-two">
       <div class="pricing-container">
         <div class="pricing">Reserved VM Pricing / Hour</div>
       </div>
@@ -246,23 +367,46 @@
             <div class="pad first-row">&dollar;{{ cloud.reservedvmprice2}}</div>
             <div class="pad first-row">&dollar;{{ cloud.reservedvmprice3 }}</div>
           </div>
-        </div>
+        </div> 
       </div>
-    </section>
+    </section> -->
 
 
     <div class="description">
-      Based on the Pricing ROI the recommendations are {{suggestion}} Cloud platform
+      <div class="short-text">
+        based on the decison tree mapping / ROI the recomendations are containerization
+      </div>
+      <div class="categories">
+        <div class="second-header-container grid">
+          <div class="heading cloud black azure-only">
+            <a class="small-btn"
+            target="_blank"
+             href="https://apps.powerapps.com/play/e/default-9b415834-803a-4da0-afdc-fe6b1d52d649/a/8b24ace8-511b-4761-9274-86221fcc3cc4?tenantId=9b415834-803a-4da0-afdc-fe6b1d52d649&Screen=1">
+             Azure-AKS</a></div>
+          <div class="heading cloud black aws-only">
+            <a  class="small-btn" 
+            target="_blank"
+            href="https://apps.powerapps.com/play/e/default-9b415834-803a-4da0-afdc-fe6b1d52d649/a/8b24ace8-511b-4761-9274-86221fcc3cc4?tenantId=9b415834-803a-4da0-afdc-fe6b1d52d649&Screen=1">
+            AWS-EKS</a></div>
+          <div class="heading cloud black google">
+            <a  class="small-btn"
+            target="_blank"
+             href="https://apps.powerapps.com/play/e/default-9b415834-803a-4da0-afdc-fe6b1d52d649/a/8b24ace8-511b-4761-9274-86221fcc3cc4?tenantId=9b415834-803a-4da0-afdc-fe6b1d52d649&Screen=1">
+             GCP-GKS</a></div>
+        </div>
+
+      </div>
+
     </div>
-    <footer class="footer">
+    <!-- <footer class="footer">
 
       © 2022 Pactera Edge. All rights reserved.
 
-    </footer>
+    </footer> -->
   </div>
   <div class="pdf-download">
     <span class="pdf-btn">
-      <button class = "download" (click)="savePDF()">
+      <button class="download" (click)="savePDF()">
         Download PDF
       </button>
     </span>

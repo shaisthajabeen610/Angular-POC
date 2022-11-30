@@ -64,6 +64,8 @@ export class PricingComponent implements OnInit,Series {
   reservedvmprice2:any;
   reservedvmprice3:any;
 
+  logicalProcessor:any;
+
 
   //jsonData: any[] = data;
   data_filter:any;
@@ -77,6 +79,15 @@ export class PricingComponent implements OnInit,Series {
   suggestion:any;
   content : any[] = [];
   arrdata : any[] = [];
+
+  series1:any;
+  series2:any;
+  series3:any;
+
+  clusterPrice1:any;
+  clusterPrice2:any;
+  clusterPrice3:any;
+
   
         
   images: any = [
@@ -105,41 +116,39 @@ export class PricingComponent implements OnInit,Series {
     this.fillData();
     console.log("in pricing")
    
-  }
-    
-      
-
-    
+  }    
   fillData(){
-    this.reportDataService.getArchData().subscribe((data:any) =>{
-      let len = (data.length - 1);
-      // to get the last item in array
-      console.log("len", len)
-      let itemsLen =  Object.keys(data[len]).length
-      // to get the no.of key pair values at a give index
-      console.log("data in get", data[len].Env_Name)
-      this.titleEnvName = data[len].Env_Name;
-     // console.log(data[len][1], "data item")
-        for(let i=2,j=1;i<itemsLen;i++,j++){
-          this.archcomplexity = data[len]['App_Arch_Complexity_'+j];
-          console.log("inside for loop",this.archcomplexity)
-          this.pricingCalculation(this.archcomplexity);
-          
-        }
-      //this.arrdata = data[0].Arch_Complexity.split('"');
-      // this.complexitylength= this.arrdata.length;
-      // for(let i=1;i<this.complexitylength;i=i+1){
-      //    this.archcomplexity= this.arrdata[i];
-      //    this.pricingCalculation(this.archcomplexity);
+    this.reportDataService.getDecisionTreeData().
+        subscribe((data: any) => {
+          this.titleEnvName  = data.systemInfo;
+          this.logicalProcessor = data.logicalProcessor;
+          this.pricingCalculation(this.logicalProcessor);
 
-      // }
+        })
+
+    // this.reportDataService.getArchData().subscribe((data:any) =>{
+    //   let len = (data.length - 1);
+    //   // to get the last item in array
+    //   console.log("len", len)
+    //   let itemsLen =  Object.keys(data[len]).length
+    //   // to get the no.of key pair values at a give index
+    //   console.log("data in get", data[len].Env_Name)
+    //   this.titleEnvName = data[len].Env_Name;
+    //  // console.log(data[len][1], "data item")
+    //     for(let i=2,j=1;i<itemsLen;i++,j++){
+    //       this.archcomplexity = data[len]['App_Arch_Complexity_'+j];
+    //       console.log("inside for loop",this.archcomplexity)
+    //       this.pricingCalculation(this.archcomplexity);
+          
+    //     }
+     
 
       //console.log("complexity data in api", data[0].Arch_Complexity)
 
-    });
+   
   }
   pricingCalculation(e:any){
-      if(e=="Simple"){
+      if(e==4){
         //logical processor 4
         //this.mname='F4s v2';
         // this.data.ram1='8 GB';
@@ -160,17 +169,30 @@ export class PricingComponent implements OnInit,Series {
         price1:'0.169',
         price2:'0.199',
         price3:'0.167' ,
-        spotvmprice1:'58.0778',
+        spotvmprice1:'11.88',
         spotvmprice2:'0',
         spotvmprice3:'0',
         reservedvmprice1:'57.39',
         reservedvmprice2: '0',
-        reservedvmprice3:'0'
+        reservedvmprice3:'0',
+        clusterPrice1:'78.16',
+        clusterPrice2:'0',
+        clusterPrice3:'0',
+        series1:'F_Series',
+        series2:'',
+        series3:'',
+        reservedAKS:'60.05',
+        reservedEKS:'0',
+        reservedGKS:'0',
+        webAppPrice1:'138.70',
+        webAppPrice2:'',
+        webAppPrice3:'',
+        
       
       })
       }
       //console.log("testing content",this.data_filter)
-      if(e=="Medium"){
+      if(e==6){
         //logical processor 6
         this.priceArray.push({ram1:'16 GB',
         ram2:'16 GB',
@@ -184,17 +206,30 @@ export class PricingComponent implements OnInit,Series {
         price1:'0.338',
         price2:'0.398',
         price3:'0.334'  ,
-        spotvmprice1:'116.15' ,
+        spotvmprice1:'23.85' ,
         spotvmprice2:'0',
         spotvmprice3:'0',
         reservedvmprice1:'114.78',
         reservedvmprice2: '0',
-        reservedvmprice3:'0'
+        reservedvmprice3:'0',
+        clusterPrice1:'151.16',
+        clusterPrice2:'0',
+        clusterPrice3:'0',
+        series1:'F_Series',
+        series2:'',
+        series3:'',
+        reservedAKS:'115.14',
+        reservedEKS:'0',
+        reservedGKS:'0',
+        webAppPrice1:'277.40',
+        webAppPrice2:'',
+        webAppPrice3:'',
+        
       
       })
         
       }
-      if(e=="Complex"){
+      if(e>=8){
        
  //logical processor 8 || greater than 8
         this.priceArray.push({ram1:'32 GB',
@@ -209,12 +244,25 @@ export class PricingComponent implements OnInit,Series {
         price1:'0.677',
         price2:'0.796',
         price3:'0.668' ,
-        spotvmprice1:'232.315'  ,
+        spotvmprice1:'47.70'  ,
         spotvmprice2:'0',
         spotvmprice3:'0',
         reservedvmprice1:'229.59',
         reservedvmprice2: '0',
-        reservedvmprice3:'0'
+        reservedvmprice3:'0',
+        clusterPrice1:'296.43',
+        clusterPrice2:'0',
+        clusterPrice3:'0',
+        series1:'F_Series',
+        series2:'',
+        series3:'',
+        reservedAKS:'222.89',
+        reservedEKS:'0',
+        reservedGKS:'0',
+        webAppPrice1:'452.60',
+        webAppPrice2:'',
+        webAppPrice3:'',
+        
       
       })
       }

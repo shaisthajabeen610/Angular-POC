@@ -21,7 +21,21 @@ export class ReportDataService {
   return this.http.get('https://retoolapi.dev/yIbmi7/data');
 }
  getDecisionTreeData(){
-  return this.http.get('https://retoolapi.dev/n06gcX/serverInfo/1')
+  return this.http.get('https://retoolapi.dev/n06gcX/serverInfo/1');
  }
-  
+ getServerInfo(){
+  return this.http.get('https://retoolapi.dev/DAuU39/serverDetails/1');
+ }
+ getComputeInfo(){
+  return this.http.get('https://retoolapi.dev/HDYBF2/compute_1/1');
+ }
+ getStorageInfo(){
+  return this.http.get('https://retoolapi.dev/O0j2DD/Server_diskspace/1');
+ }
+  getPortInfo(){
+    return this.http.get('https://retoolapi.dev/9lfuUO/RemotePort_Info/2');
+  }
+  getLocalPortInfo(){
+    return this.http.get('https://retoolapi.dev/VuxwHW/LocalPort_info/2');
+  }
 }

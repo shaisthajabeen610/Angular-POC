@@ -1,0 +1,260 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="node_modules/highcharts-solid-gauge/index.js"></script>
+<script src="../node_modules/highcharts/highcharts.js"></script>
+<script src="../node_modules/highcharts/highcharts-more.js"></script>
+<script src="../node_modules/highcharts/modules/solid-gauge.js"></script>
+<script src="https://code.highcharts.com/stock/highcharts-more.js"></script>
+
+
+<div class="page-layout">
+    <!-- Server Posture add logo float right -->
+  
+    <div class="title-block">
+        <div class="title">
+          <h1>
+            SERVER POSTURE
+          </h1>
+        </div>
+    
+        <div>
+          <img
+            src="data:image/png;base64,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"
+            crossorigin="*" class="logo-image">
+        </div>
+      </div>
+    <div class="pane1">
+        <div class="content1">
+            <div class="box1">
+                <button type="button" (click)="onClick1()" class="collapsible1">
+                    <h3>
+                        Server Information
+    
+                    </h3>
+                </button>
+                <div [hidden]="hide1" class="display-data ">
+    
+    
+                    <ul class="list-group">
+                        <li>Registered Organisation <span class="badge">{{regorg}}</span></li>
+                        <li>System Manufacturer <span class="badge">{{sysManufact}}</span></li>
+                        <li>Registered Owner <span class="badge">{{regown}}</span></li>
+                        <li>System Locale<span class="badge">{{syslocale}}</span></li>
+                        <li>System Model <span class="badge">{{sysModel}}</span></li>
+                        <li>Server Name <span class="badge">{{serverName}}</span></li>
+                        <li>System Type<span class="badge">{{systype}}</span></li>
+                        <li>Product ID<span class="badge">{{pId}}</span>
+                        <li>Timezone<span class="badge">{{timeZone}}</span>
+                        </li>
+                    </ul>
+    
+                </div>
+            </div>
+            <div class="box2">
+                <button type="button" (click)="onClick2()" class="collapsible2">
+                    <h3>
+                       Applications Discovered    
+                    </h3>
+                    
+                </button>
+                <div [hidden]="hide2" class="display-data">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat.</p>
+                </div>
+    
+            </div>
+            <div class="box3">
+                <button type="button" (click)="onClick3()" class="collapsible3">
+                    <h3>
+                       Databases Discovered
+    
+                    </h3>
+                </button>
+                <div [hidden]="hide3" class="display-data">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat.</p>
+                </div>
+    
+            </div>
+            <!-- <div class="box4">
+                <button type="button" (click)="onClick4()" class="collapsible4">Server Name</button>
+                <div [hidden]="hide4" class="display-data">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat.</p>
+                </div>
+    
+            </div> -->
+    
+        </div>
+        <div class="content2">
+            <div class="graph-content">
+    
+                <figure class="highcharts-figure">
+                    <div id="container-speed" class="chart-container"></div>
+                    <div id="container-rpm" class="chart-container"></div>
+                    <div id="container-speed1" class="chart-container"></div>
+                    <div id="container-rpm1" class="chart-container"></div>
+                   
+                </figure>
+            </div>
+                <div class="api-data">
+                    <div class="sub-heading">
+                        <button class="b1" (click)="onExpand1()">
+                           CPU Performance
+            
+                        </button>
+                        <div [hidden]="expand1"class="expand-data">
+                            <ul>
+                                <li>IIS - Number of Sites, URLs,  
+                                </li>
+                                <li>.NET-  Version, application packages
+                                </li>
+                            </ul>
+                        </div>
+            
+                    </div>
+                    <div class="sub-heading">
+                        <button class="b1" (click)="onExpand2()">Memory Usage
+                        </button>
+                        <div [hidden]="expand2"class="expand-data">
+                            <ul>
+                                <li>SQL</li>
+                                <li>MySQL</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sub-heading">
+                        <button  class="b1" (click)="onExpand3()">Disk Space
+                        </button>
+                        <div [hidden]="expand3"class="expand-data">
+                            Share folder & path
+            
+                        </div>
+                    </div>
+                   
+                </div>
+                
+
+      
+    
+            
+    
+        </div>
+        <div class="content3">
+            <div class="box1">
+                <button type="button"  class="collapsible1">
+                    <h3>
+                        Operating System Information
+    
+                    </h3>
+                </button>
+                <!-- <div [hidden]="hide1" class="display-data ">
+    
+    
+                    <ul class="list-group">
+                        <li>Registered Organisation <span class="badge">{{regorg}}</span></li>
+                        <li>System Manufacturer <span class="badge">{{sysManufact}}</span></li>
+                        <li>Registered Owner <span class="badge">{{regown}}</span></li>
+                        <li>System Locale<span class="badge">{{syslocale}}</span></li>
+                        <li>System Model <span class="badge">{{sysModel}}</span></li>
+                        <li>Server Name <span class="badge">{{serverName}}</span></li>
+                        <li>System Type<span class="badge">{{systype}}</span></li>
+                        <li>Product ID<span class="badge">{{pId}}</span>
+                        <li>Timezone<span class="badge">{{timeZone}}</span>
+                        </li>
+                    </ul>
+     
+                </div>-->
+            </div>
+            <div class="box2">
+                <button type="button"  class="collapsible2">
+                    <h3>
+                       Storage Discovered   
+                    </h3>
+                    
+                </button>
+                <!-- <div [hidden]="hide2" class="display-data">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat.</p>
+                </div> -->
+    
+            </div>
+            <div class="box3">
+                <button type="button"  class="collapsible3">
+                    <h3>
+                       Server CPU Performance
+    
+                    </h3>
+                </button>
+                <!-- <div [hidden]="hide3" class="display-data">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat.</p>
+                </div> -->
+                </div>
+    
+        
+</div>
+<div class="content4">
+    <div class="box1">
+        <button type="button"  class="collapsible1">
+            <h3>
+                Processes Memory Usage
+
+            </h3>
+        </button>
+        <!-- <div [hidden]="hide1" class="display-data ">
+
+
+            <ul class="list-group">
+                <li>Registered Organisation <span class="badge">{{regorg}}</span></li>
+                <li>System Manufacturer <span class="badge">{{sysManufact}}</span></li>
+                <li>Registered Owner <span class="badge">{{regown}}</span></li>
+                <li>System Locale<span class="badge">{{syslocale}}</span></li>
+                <li>System Model <span class="badge">{{sysModel}}</span></li>
+                <li>Server Name <span class="badge">{{serverName}}</span></li>
+                <li>System Type<span class="badge">{{systype}}</span></li>
+                <li>Product ID<span class="badge">{{pId}}</span>
+                <li>Timezone<span class="badge">{{timeZone}}</span>
+                </li>
+            </ul> -->
+
+        <!-- </div> -->
+    </div>
+    <div class="box2">
+        <button type="button"  class="collapsible2">
+            <h3>
+                 
+            </h3>
+            
+        </button>
+        <!-- <div [hidden]="hide2" class="display-data">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                aliquip ex ea commodo consequat.</p> -->
+        <!-- </div> -->
+
+    </div>
+    <div class="box3">
+        <button type="button"  class="collapsible3">
+            <h3>
+               Databases Discovered
+
+            </h3>
+        </button>
+        <!-- <div [hidden]="hide3" class="display-data">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                aliquip ex ea commodo consequat.</p>
+        </div> -->
+
+</div>
+    </div>

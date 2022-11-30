@@ -1,0 +1,465 @@
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="body">
+
+  <body>
+    <!-- <div class="burger-icon"  [hidden]="!hideSideBar" (click)="openNav()">&#9776; -->
+    <!-- </div> -->
+    <div class="main-container">
+
+      <div class="left-pane">
+
+        <div id="mySidenav" [hidden]="hideSideBar" class="sidenav">
+          <a href="javascript:void(0)" (click)="closeNav()" class="closebtn">&times;</a>
+
+          <a href="#">Discovered Clients</a>
+          <a href="#">Discovery Reports</a>
+          <a href="#">Notifications</a>
+          <a href="#">Support</a>
+          <a href="#">Goto CloudCentral Menu</a>
+        </div>
+
+      </div>
+      <div class="right-pane">
+
+        <div id="main">
+          <h2 class="text-conatiner">Your Cloud Journey Just started!</h2>
+          <p>Welcome to Discovery page, Click on Explore to find more information on discovered servers, applications
+            information, reports and reach support teams for help.
+
+            We are in together with you in this Journey to make it seamless.</p>
+          <div class="burger-icon"  (click)="openNav()">&#9776; Explore</div>
+        </div>
+
+
+        <div class="box-container">
+          <button class="box " (click)="onClick1()">
+            <!-- <div class="box-inner box-inner1">
+              <img class="logo"
+                src="https://user-images.githubusercontent.com/67311615/200858789-a729b056-ac9e-4925-8e4f-0571e4556a72.png"
+                alt="">
+            </div> -->
+            <div class="box-inner">
+              <p class="text">Server</p>
+              <!-- <p class="sub-text"></p> -->
+            </div>
+            <!-- <div class="box-inner box-inner3">
+                    <img class="pointer" src="https://user-images.githubusercontent.com/67311615/200859721-e1bd8bf1-6b0f-4c4c-9966-b0038993cfe4.png">
+                </div>
+             -->
+
+          </button>
+
+          <button class="box" (click)="onClick2()">
+            <!-- <div class="box-inner box-inner1">
+              <img class="logo"
+                src="https://user-images.githubusercontent.com/67311615/200858789-a729b056-ac9e-4925-8e4f-0571e4556a72.png"
+                alt="">
+            </div> -->
+            <div class="box-inner">
+              <p class="text">Compute</p>
+              <!-- <p class="sub-text"></p> -->
+            </div>
+            <!-- <div class="box-inner box-inner3">
+              <img class="pointer" src="https://user-images.githubusercontent.com/67311615/200859721-e1bd8bf1-6b0f-4c4c-9966-b0038993cfe4.png">
+          </div> -->
+
+
+          </button>
+          <button class="box">
+            <!-- <div class="box-inner box-inner1">
+              <img class="logo"
+                src="https://user-images.githubusercontent.com/67311615/200858789-a729b056-ac9e-4925-8e4f-0571e4556a72.png"
+                alt="">
+            </div> -->
+            <div class="box-inner">
+              <p class="text">Databases</p>
+              <!-- <p class="sub-text"></p> -->
+            </div>
+
+            <!-- <div class="box-inner box-inner3">
+                <img class="pointer" src="https://user-images.githubusercontent.com/67311615/200859721-e1bd8bf1-6b0f-4c4c-9966-b0038993cfe4.png">
+            </div> -->
+          </button>
+          <button class="box" (click)="onClick4()">
+            <!-- <div class="box-inner box-inner1">
+              <img class="logo"
+                src="https://user-images.githubusercontent.com/67311615/200858789-a729b056-ac9e-4925-8e4f-0571e4556a72.png"
+                alt="">
+            </div> -->
+            <div class="box-inner">
+              <p class="text">Application</p>
+              <!-- <p class="sub-text"></p> -->
+            </div>
+            <!-- <div class="box-inner box-inner3">
+              <img class="pointer" src="https://user-images.githubusercontent.com/67311615/200859721-e1bd8bf1-6b0f-4c4c-9966-b0038993cfe4.png">
+          </div> -->
+
+
+          </button>
+          <button class="box" (click)="onClick5()">
+            <!-- <div class="box-inner box-inner1">
+              <img class="logo"
+                src="https://user-images.githubusercontent.com/67311615/200858789-a729b056-ac9e-4925-8e4f-0571e4556a72.png"
+                alt="">
+            </div> -->
+            <div class="box-inner">
+              <p class="text">Storage</p>
+              <!-- <p class="sub-text"></p> -->
+            </div>
+
+            <!-- <div class="box-inner box-inner3">
+              <img class="pointer" src="https://user-images.githubusercontent.com/67311615/200859721-e1bd8bf1-6b0f-4c4c-9966-b0038993cfe4.png">
+          </div> -->
+
+
+          </button>
+          <button class="box">
+            <!-- <div class="box-inner box-inner1">
+              <img class="logo"
+                src="https://user-images.githubusercontent.com/67311615/200858789-a729b056-ac9e-4925-8e4f-0571e4556a72.png"
+                alt="">
+            </div> -->
+            <div class="box-inner">
+              <p class="text">Network</p>
+              <!-- <p class="sub-text"></p> -->
+            </div>
+
+            <!-- <div class="box-inner box-inner3">
+                <img class="pointer" src="https://user-images.githubusercontent.com/67311615/200859721-e1bd8bf1-6b0f-4c4c-9966-b0038993cfe4.png">
+            </div> -->
+
+          </button>
+        </div>
+        <div class="content-loader">
+
+          <div [hidden]="hide1" class="display-data ">
+
+            <button class="accordion" (click)="onSubCLick1()">
+              Registered Organisation
+              <h3 [hidden]="!isHidden1"> &plus;</h3>
+              <h3 [hidden]="isHidden1"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden1">
+              <div class="data">
+                {{regorg}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick2()">
+              System Manufacturer
+              <h3 [hidden]="!isHidden2"> &plus;</h3>
+              <h3 [hidden]="isHidden2"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden2">
+              <div class="data">
+                {{sysManufact}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick3()">
+              Registered Owner
+              <h3 [hidden]="!isHidden3"> &plus;</h3>
+              <h3 [hidden]="isHidden3"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden3">
+              <div class="data">
+                {{regown}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick4()">
+              System Locale
+              <h3 [hidden]="!isHidden4"> &plus;</h3>
+              <h3 [hidden]="isHidden4"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden4">
+              <div class="data">
+                {{syslocale}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick5()">
+              System Model <h3 [hidden]="!isHidden5"> &plus;</h3>
+              <h3 [hidden]="isHidden5"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden5">
+              <div class="data">
+                {{sysModel}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick6()">
+              Server Name
+              <h3 [hidden]="!isHidden6"> &plus;</h3>
+              <h3 [hidden]="isHidden6"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden6">
+              <div class="data">
+                {{serverName}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick7()">
+              System Type
+              <h3 [hidden]="!isHidden7"> &plus;</h3>
+              <h3 [hidden]="isHidden7"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden7">
+              <div class="data">
+                {{systype}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick8()">
+              Product ID
+              <h3 [hidden]="!isHidden8"> &plus;</h3>
+              <h3 [hidden]="isHidden8"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden8">
+              <div class="data">
+                {{pId}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick9()">
+              Timezone
+              <h3 [hidden]="!isHidden9"> &plus;</h3>
+              <h3 [hidden]="isHidden9"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden9">
+              <div class="data">
+                {{timeZone}}
+              </div>
+            </div>
+
+
+            <!-- 
+            <ul class="list-group">
+              <li>Registered Organisation <span class="badge">{{regorg}}</span></li>
+              <li>System Manufacturer <span class="badge">{{sysManufact}}</span></li>
+              <li>Registered Owner <span class="badge">{{regown}}</span></li>
+              <li>System Locale<span class="badge">{{syslocale}}</span></li>
+              <li>System Model <span class="badge">{{sysModel}}</span></li>
+              <li>Server Name <span class="badge">{{serverName}}</span></li>
+              <li>System Type<span class="badge">{{systype}}</span></li>
+              <li>Product ID<span class="badge">{{pId}}</span>
+              <li>Timezone<span class="badge">{{timeZone}}</span>
+              </li>
+            </ul> -->
+
+          </div>
+          <div [hidden]="hide2" class="display-data ">
+            <button class="accordion" (click)="onSubCLick1()">
+              Total CPU
+              <h3 [hidden]="!isHidden1"> &plus;</h3>
+              <h3 [hidden]="isHidden1"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden1">
+              <div class="data">
+                {{totalCPU}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick2()">
+              Virtual Memory in use
+              <h3 [hidden]="!isHidden2"> &plus;</h3>
+              <h3 [hidden]="isHidden2"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden2">
+              <div class="data">
+                {{vmemoryinuse}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick3()">
+              Virtual Memory Maximum size
+              <h3 [hidden]="!isHidden3"> &plus;</h3>
+              <h3 [hidden]="isHidden3"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden3">
+              <div class="data">
+                {{vmemorymaxsize}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick4()">
+              Used Memory in MB/GB
+              <h3 [hidden]="!isHidden4"> &plus;</h3>
+              <h3 [hidden]="isHidden4"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden4">
+              <div class="data">
+                {{usedMemoryMB }}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick5()">
+              Server Provision Date
+              <h3 [hidden]="!isHidden5"> &plus;</h3>
+              <h3 [hidden]="isHidden5"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden5">
+              <div class="data">
+                {{serverProvisionDate}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick6()">
+              Server Reboot Time
+              <h3 [hidden]="!isHidden6"> &plus;</h3>
+              <h3 [hidden]="isHidden6"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden6">
+              <div class="data">
+                {{serverRebootTime}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick7()">
+              Total Memory in MB/GB
+              <h3 [hidden]="!isHidden7"> &plus;</h3>
+              <h3 [hidden]="isHidden7"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden7">
+              <div class="data">
+                {{totalMemoryMB}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick8()">
+              Used Logical Processors
+              <h3 [hidden]="!isHidden8"> &plus;</h3>
+              <h3 [hidden]="isHidden8"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden8">
+              <div class="data">
+                {{usedLogicalProcessors}}
+              </div>
+            </div>
+
+            <!-- 
+            <ul class="list-group">
+              <li>total CPU <span class="badge">{{totalCPU}}</span></li>
+              <li>Virtual Memory in use <span class="badge">{{vmemoryinuse}}</span></li>
+              <li>Virtual Memory Maximum size <span class="badge">{{vmemorymaxsize}}</span></li>
+              <li>Used Memory in MB/GB<span class="badge">{{usedMemoryMB }}</span></li>
+              <li>Server Provision Date<span class="badge">{{serverProvisionDate}}</span></li>
+              <li>Server Reboot Time <span class="badge">{{serverRebootTime}}</span></li>
+              <li>Total Memory in MB/GB<span class="badge">{{totalMemoryMB}}</span></li>
+              <li>Used Logical Processors<span class="badge">{{usedLogicalProcessors}}</span>
+        
+              </li>
+            </ul> -->
+
+          </div>
+          <div [hidden]="hide5" class="display-data ">
+            <button class="accordion" (click)="onSubCLick1()">
+              Size
+              <h3 [hidden]="!isHidden1"> &plus;</h3>
+              <h3 [hidden]="isHidden1"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden1">
+              <div class="data" *ngFor="let i of size;">
+                {{i}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick2()">
+              Drive Type
+              <h3 [hidden]="!isHidden2"> &plus;</h3>
+              <h3 [hidden]="isHidden2"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden2">
+              <div class="data" *ngFor="let i of drivertype;">
+                {{i}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick3()">
+              Free Space
+              <h3 [hidden]="!isHidden3"> &plus;</h3>
+              <h3 [hidden]="isHidden3"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden3">
+              <div class="data" *ngFor="let i of freeSpace;">
+                {{i}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick4()">
+              Drive
+              <h3 [hidden]="!isHidden4"> &plus;</h3>
+              <h3 [hidden]="isHidden4"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden4">
+              <div class="data" *ngFor="let i of drive;">
+                {{i}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick5()">
+              Health Status
+              <h3 [hidden]="!isHidden5"> &plus;</h3>
+              <h3 [hidden]="isHidden5"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden5">
+              <div class="data" *ngFor="let i of healthStatus;">
+                {{i}}
+              </div>
+            </div>
+            <button class="accordion" (click)="onSubCLick6()">
+              Server Reboot Time
+              <h3 [hidden]="!isHidden6"> &plus;</h3>
+              <h3 [hidden]="isHidden6"> &minus;</h3>
+            </button>
+            <div class="panel" [hidden]="isHidden6">
+              <div class="data" *ngFor="let i of fileSystemType;">
+                {{i}}
+              </div>
+            </div>
+
+
+            <!-- 
+            <ul class="list-group">
+              <li>Size <span *ngFor="let i of size;" class="badge">{{i}},</span></li>
+              <li>Drive Type <span *ngFor="let i of drivertype;" class="badge">{{i}},</span></li>
+              <li>Free Space <span *ngFor="let i of freeSpace;" class="badge">{{i}},</span></li>
+              <li> Drive<span *ngFor="let i of drive;" class="badge">{{i}},</span></li>
+              <li>Health Status<span *ngFor="let i of healthStatus;" class="badge">{{i}},</span></li>
+              <li>File System Type <span *ngFor="let i of fileSystemType;" class="badge">{{i}},</span></li>
+            </ul> -->
+
+          </div>
+
+        </div>
+        <div class="graph-content">
+          <div class="content1">
+            <highcharts-chart [chart]="networkChart" ></highcharts-chart>
+            <!-- <highcharts-chart [Highcharts]="chart"> -->
+
+            <!-- </highcharts-chart> -->
+          </div>
+          <div class="content2">
+            <highcharts-chart [Highcharts]="generateChart" [options]="chartOptions2"></highcharts-chart>
+
+          </div>
+        </div>
+        
+        
+        <div class="graph-content">
+          <div class="content1">
+            <highcharts-chart [chart]="localChart" ></highcharts-chart> 
+          </div>
+          <div class="content2">
+            <highcharts-chart [Highcharts]="packBubblechart" [options]="chartOptions3"></highcharts-chart>        
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+  </body>
+</div>
+
+
+  <!-- <div class="heading">
+    Discovery Report
+
+  </div> -->
+  <!-- <div class="card-content">
+
+    <div class="card1">
+      some text
+    </div>
+    <div class="card2">
+      some text
+    </div>
+  </div> -->

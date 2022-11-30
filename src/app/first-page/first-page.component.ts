@@ -57,7 +57,7 @@ readThis(inputValue: any): void {
     myReader.readAsText(file);
   }
   pricing(){
-     this.routes.navigate(['decision-tree']
+     this.routes.navigate(['pricing']
     //  ,{queryParams:{data:this.or} }
      )
   }
