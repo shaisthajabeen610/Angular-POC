@@ -88,6 +88,7 @@ export class PricingComponent implements OnInit,Series {
   clusterPrice2:any;
   clusterPrice3:any;
 
+  servername:any;
   
         
   images: any = [
@@ -111,18 +112,36 @@ export class PricingComponent implements OnInit,Series {
     setTimeout(()=>{
       this.showPopup = false;
       this.showPricing = true;
-    }, 3000);
+    }, 1000);
     this.suggestion = "Google"
     this.fillData();
     console.log("in pricing")
    
   }    
   fillData(){
+
+    this.reportDataService.getInfoFromDiscovery().subscribe((data:any)=>{
+      this.titleEnvName  = data.serverName;
+      console.log("data from decision", data)
+    });
+
     this.reportDataService.getDecisionTreeData().
         subscribe((data: any) => {
-          this.titleEnvName  = data.servername;
-          this.logicalProcessor = data.logicalProcessor;
+
+          let len = data.length;
+      // to get the last item in array
+      console.log("len",data)
+
+      for(let i=0;i<len;i++){
+        
+        if( data[i].serverName == this.titleEnvName  ){
+          let count=2;
+          console.log("count",count)
+          // this.titleEnvName  = data[i].serverName;
+          this.logicalProcessor = data[i].logicalProcessor;
           this.pricingCalculation(this.logicalProcessor);
+        }
+      }  
 
         })
 
@@ -184,9 +203,26 @@ export class PricingComponent implements OnInit,Series {
         reservedAKS:'60.05',
         reservedEKS:'0',
         reservedGKS:'0',
-        webAppPrice1:'138.70',
+        webAppPrice1:'219.00',
         webAppPrice2:'',
         webAppPrice3:'',
+        webAppSeries1:' Basic B3',
+        webAppSeries2:'',
+        webAppSeries3:'',
+        webApp1ram1:'7 GB',
+        webApp2ram2:'',
+        webApp3ram3:'',
+        dbSeriesram1:' 4vcore',
+        dbSeriesram2:'',
+        dbSeriesram3:'',
+        dbSeriesName1:'Standard-series(GEN 5)',
+        dbSeriesName2:'',
+        dbSeriesName3:'',
+        dbPrice1:'736.37',
+        dbPrice2:'0',
+        dbPrice3:'0',
+
+
         
       
       })
@@ -221,9 +257,24 @@ export class PricingComponent implements OnInit,Series {
         reservedAKS:'115.14',
         reservedEKS:'0',
         reservedGKS:'0',
-        webAppPrice1:'277.40',
+        webAppPrice1:'292.00',
         webAppPrice2:'',
         webAppPrice3:'',
+        webAppSeries1:'Standard S3 ',
+        webAppSeries2:'',
+        webAppSeries3:'',
+        webApp1ram1:'7 GB',
+        webApp2ram2:'',
+        webApp3ram3:'',
+        dbSeriesram1:'6Vcore',
+        dbSeriesram2:'',
+        dbSeriesram3:'',
+        dbSeriesName1:'Standard-series(GEN 5)',
+        dbSeriesName2:'',
+        dbSeriesName3:'',
+        dbPrice1:'1104.56',
+        dbPrice2:'0',
+        dbPrice3:'0',
         
       
       })
@@ -252,16 +303,31 @@ export class PricingComponent implements OnInit,Series {
         reservedvmprice3:'0',
         clusterPrice1:'296.43',
         clusterPrice2:'0',
-        clusterPrice3:'0',
+        clusterPrice3:0,
         series1:'F_Series',
         series2:'',
         series3:'',
         reservedAKS:'222.89',
         reservedEKS:'0',
         reservedGKS:'0',
-        webAppPrice1:'452.60',
+        webAppPrice1:'919.80',
         webAppPrice2:'',
         webAppPrice3:'',
+        webAppSeries1:'Premium V3',
+        webAppSeries2:'',
+        webAppSeries3:'',
+        webApp1ram1:'32 GB',
+        webApp2ram2:'',
+        webApp3ram3:'',
+        dbSeriesram1:'8Vcore',
+        dbSeriesram2:'',
+        dbSeriesram3:'',
+        dbSeriesName1:'Standard-series(GEN 5)',
+        dbSeriesName2:'',
+        dbSeriesName3:'',
+        dbPrice1:'1472.75',
+        dbPrice2:'0',
+        dbPrice3:'0',
         
       
       })

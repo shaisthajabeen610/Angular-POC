@@ -23,9 +23,12 @@ export class ReportDataService {
 //  getDecisionTreeData(){
 //   return this.http.get('https://retoolapi.dev/n06gcX/serverInfo/1');
 //  }
-
 getDecisionTreeData(){
-    return this.http.get('https://retoolapi.dev/FYI1Io/serverInfo/1');
+  return this.http.get('https://retoolapi.dev/dJiRRa/serverInfo')
+  
+}
+getInfoFromDiscovery(){
+  return this.http.get('https://retoolapi.dev/39ZMPw/serverNameForNavigation/1')
 }
 
  getServerInfo(){

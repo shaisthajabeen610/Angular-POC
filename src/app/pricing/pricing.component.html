@@ -87,14 +87,14 @@
               <!-- Compute Optimized -->
             </td>
             <td class="type app-row">Application {{i+1}}</td>
-            <td class="data-row-one">{{cloud.meterName1}}</td>
-            <td class="data-row-two border-rad-last">{{cloud.ram1}}</td>
+            <td class="data-row-one">{{cloud.webAppSeries1}}</td>
+            <td class="data-row-two border-rad-last">{{cloud.webApp1ram1}}</td>
             <td class="space"></td>
-            <td class="data-row-one border-rad-first">{{ cloud.meterName2 }}</td>
-            <td class="data-row-two border-rad-last">{{ cloud.ram2 }}</td>
+            <td class="data-row-one border-rad-first">{{ cloud. webAppSeries2 }}</td>
+            <td class="data-row-two border-rad-last">{{ cloud.webApp2ram2}}</td>
             <td class="space"></td>
-            <td class="data-row-one border-rad-first">{{ cloud.meterName3}}</td>
-            <td class="data-row-two border-rad-last">{{ cloud.ram3 }}</td>
+            <td class="data-row-one border-rad-first">{{ cloud. webAppSeries3}}</td>
+            <td class="data-row-two border-rad-last">{{ cloud.webApp3ram3 }}</td>
           </tr>
         </tbody>
       </table>
@@ -252,9 +252,20 @@
             </div>
 
             <div class="pad first-row grid-type app-row">Application{{i+1}}</div>
-            <div class="pad first-row">{{cloud.meterName1}}</div>
-            <div class="pad first-row">{{cloud.meterName2}}</div>
-            <div class="pad  gcloud  border-rad-last">{{cloud.meterName3}}</div>
+            <div class="pad first-row">{{cloud. webAppSeries1}}</div>
+            <div class="pad first-row">{{cloud. webAppSeries2}}</div>
+            <div class="pad  gcloud  border-rad-last">{{cloud. webAppSeries3}}</div>
+          </div>
+          <div class="main-container grid " *ngFor="let cloud of priceArray; let i = index">
+
+            <div class="pad  border-rad-first grid-type ">
+              Single DataBase
+            </div>
+
+            <div class="pad first-row grid-type app-row">Application{{i+1}}</div>
+            <div class="pad first-row">{{cloud.dbSeriesName1}}</div>
+            <div class="pad first-row">{{cloud.dbSeriesName2}}</div>
+            <div class="pad  gcloud  border-rad-last">{{cloud.dbSeriesName3}}</div>
 
           </div>
         </div>
@@ -272,6 +283,13 @@
             <div class="pad first-row">&dollar;{{ cloud.clusterPrice2 |number }} </div>
             <div class="pad first-row">&dollar;{{ cloud.clusterPrice3 |number}} </div>
           </div>
+
+          <div class="second-main-container grid"
+          *ngFor="let cloud of priceArray ; let i = index">
+          <div class="pad first-row">&dollar;{{ cloud.dbPrice1 |number }} </div>
+          <div class="pad first-row">&dollar;{{ cloud.dbPrice2 |number }} </div>
+          <div class="pad first-row">&dollar;{{ cloud.dbPrice3 |number}} </div>
+        </div>
 
         </div>
 
